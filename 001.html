@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Максим & Анастасия | 18 июля 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23f8f9fa"/><stop offset="100%" stop-color="%23e9ecef"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23a)"/><circle cx="200" cy="200" r="50" fill="%23ffb6c1" opacity="0.1"/><circle cx="800" cy="300" r="30" fill="%23ffb6c1" opacity="0.15"/><circle cx="400" cy="700" r="40" opacity="0.1" fill="%23ffb6c1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffb6c1" opacity="0.05"/><circle cx="75" cy="75" r="0.5" fill="%23ffb6c1" opacity="0.03"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .names {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 700;
+            color: #d4a574;
+            text-shadow: 0 4px 20px rgba(212, 165, 116, 0.1);
+            margin-bottom: 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        
+        .date {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+        
+        .hearts {
+            font-size: 4rem;
+            color: #ffb6c1;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #d4a574;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4a574, #f4c2a1);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        .ceremony-info {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .time-location {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .info-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .time, .location {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .rsvp-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+        
+        .rsvp-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        textarea {
+            min-height: 100px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #d4a574;
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #d4a574, #c8955c);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(212, 165, 116, 0.3);
+            background: linear-gradient(135deg, #c8955c, #d4a574);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ffb6c1;
+            font-size: 20px;
+            animation: float 6s infinite linear;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ceremony-info, .rsvp-section {
+                padding: 40px 20px;
+            }
+            
+            .time-location {
+                grid-template-columns: 1fr;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Дополнительные стили для улучшения читаемости */
+        p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .info-card div:not(:first-child) {
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        #rsvp h2 {
+            color: #d4a574;
+        }
+        
+        #rsvp p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="hearts"></div>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="names">Мы женимся! 
+            Максим
+           & Анастасия</div>
+            <div class="date">18 июля 2026</div>
+            <div class="hearts">💕</div>
+        </div>
+    </section>
+    
+    <section id="ceremony">
+        <div class="container">
+            <h2>Церемония и торжество</h2>
+            <div class="ceremony-info">
+                <p style="font-size: 1.2rem; margin-bottom: 40px; font-style: italic; color: #666;">
+                  Дорогие наши родные и друзья! 
+Мы решили пожениться и хотим Вас пригласить на наше свадебное торжество!
+                </p>
+                
+                <div class="time-location">
+                    <div class="info-card">
+                        <div class="time" style="color: #d4a574; font-size: 1.4rem; margin-bottom: 10px;">⏰  Мы ждем Вас 18.07.2026</div>
+                        
+                        <div>Церемония: 15:00</div>
+                        <div>Торжество: 16:00</div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="location" style="color: #d4a574; font-size: 1.4rem; margin-bottom: 10px;">📍 Место</div>
+                        <div>г. Самара</div>
+                        <div>ул. Льва Толстого, 94</div>
+                    </div>
+                    <div class="time-location">
+                    <div class="info-card">
+                        <div class="time" style="color: #d4a574; font-size: 1.4rem; margin-bottom: 10px;">⏰  Мы ждем Вас 18.07.2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="rsvp" class="rsvp-section">
+        <div class="container">
+            <h2 style="color: #d4a574; margin-bottom: 10px;">Подтвердите участие</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; color: #666;">
+                Пожалуйста, подтвердите свое участие до 1 июля 2026
+            </p>
+            
+            <form class="rsvp-form" onsubmit="submitRSVP(event)">
+                <div class="form-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Количество гостей (включая Вас) *</label>
+                    <select id="guests" required>
+                        <option value="">Выберите количество</option>
+                        <option value="1">1 человек (только я)</option>
+                        <option value="2">2 человека (я + 1 гость)</option>
+                        <option value="3">3 человека</option>
+                        <option value="4">4 человека</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Предпочтения по меню</label>
+                    <select id="menu">
+                        <option value="">Не выбрано</option>
+                        <option value="meat">Мясное</option>
+                        <option value="fish">Рыбное</option>
+                        <option value="vegetarian">Вегетарианское</option>
+                    </select>
+                </div>
+                
+           
+                
+                <div class="form-group">
+                    <label>Комментарии или пожелания</label>
+                    <textarea id="comments" rows="3" style="resize: vertical;"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Подтвердитьучась участие💌</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Анимированные сердечки
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.opacity = Math.random() * 0.5 + 0.3;
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+        
+        setInterval(createHeart, 300);
+        
+        // Отправка формы (имитация)
+        function submitRSVP(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                guests: document.getElementById('guests').value,
+                menu: document.getElementById('menu').value,
+                transfer: document.getElementById('transfer').value,
+                comments: document.getElementById('comments').value,
+                timestamp: new Date().toLocaleString('ru-RU')
+            };
+            
+            // Здесь можно добавить реальную отправку на Google Sheets через Google Apps Script
+            console.log('Данные формы:', formData);
+            
+            alert('✅ Спасибо! Ваше участие подтверждено! Мы свяжемся с Вами для уточнения деталей.');
+            
+            // Очистка формы
+            document.querySelector('.rsvp-form').reset();
+        }
+        
+        // Плавная прокрутка
+        document.querySelector('.hearts').addEventListener('click', () => {
+            document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
